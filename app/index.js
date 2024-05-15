@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const DStvGOtvSubscription = require('./models/dstv_gotv_subModel')
+const DStvGOtvSubscription = require('../models/dstv_gotv_subModel')
 
 const app = express()
 
