@@ -1,17 +1,17 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const DStvGOtvSubscription = require('../models/dstv_gotv_subModel')
+const DStvGOtvSubscription = require('./models/dstv_gotv_subModel')
 
 const app = express()
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.send("Hello World")
 })
 
 app.post(
-    '/package', async(req, res) => {
+    '/api/package', async(req, res) => {
        try {
         const dstvgotvSubscription = await DStvGOtvSubscription.create(req.body)
         res.status(200).json(dstvgotvSubscription)
