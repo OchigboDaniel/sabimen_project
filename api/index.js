@@ -6,7 +6,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use(body_parser.json())
+//app.use(body_parser.json())
 
 app.get('/api/', (req, res) => {
     res.send("Hello World")
