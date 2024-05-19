@@ -1,4 +1,7 @@
+const app = require('./app')
 const routes = require('./routes/router');
+
+const PORT = process.env.PORT || 3000;
 
 app.use("/", routes);
 
