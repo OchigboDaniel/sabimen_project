@@ -1,4 +1,5 @@
 const app = require('./app')
+const mongoose = require('mongoose');
 const routes = require('./routes/router');
 
 const PORT = process.env.PORT || 3000;
@@ -6,7 +7,8 @@ const PORT = process.env.PORT || 3000;
 app.use("/", routes);
 
 app.listen(
-    PORT, function (){
+    PORT, function async (){
+        mongoose.connect()
         console.log("Server started at http://localhost:3000")
     }
 );
