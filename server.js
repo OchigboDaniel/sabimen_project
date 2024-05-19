@@ -1,14 +1,21 @@
+const { default: mongoose } = require('mongoose');
 const app = require('./app')
-const mongoose = require('mongoose');
 const routes = require('./routes/router');
+const { error } = require('ajv/dist/vocabularies/applicator/dependencies');
 
-const PORT = process.env.PORT || 3000;
+
 
 app.use("/", routes);
 
-app.listen(
-    PORT, function async (){
-        mongoose.connect()
-        console.log("Server started at http://localhost:3000")
-    }
-);
+mongoose.connect(process.env.DB_url)
+.then(() => {
+    app.listen(
+        process.env.PORT, ()=>{
+            console.log("Server started at http://localhost:3000")
+        }
+    );
+})
+.catch((error)=> {
+    console.log(error);
+}
+)
